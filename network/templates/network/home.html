@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 8 – DHCP</title>
+</head>
+<body>
+  <h1>DHCP Simulator</h1>
+
+  <form method="post" action="{% url 'submit' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Assign IP</button>
+  </form>
+
+  <p><a href="{% url 'leases' %}">View all leases</a></p>
+
+  {% if result %}
+    <hr>
+    <h2>Result</h2>
+    <pre>{{ result|safe }}</pre>
+  {% endif %}
+</body>
+</html>

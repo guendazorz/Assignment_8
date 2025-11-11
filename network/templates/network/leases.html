@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leases</title>
+</head>
+<body>
+  <h1>All Leases</h1>
+  <table border="1" cellpadding="6">
+    <tr>
+      <th>MAC</th>
+      <th>DHCP</th>
+      <th>Assigned IP</th>
+      <th>Lease (s)</th>
+      <th>Timestamp</th>
+    </tr>
+
+    {% for d in data %}
+    <tr>
+      <td>{{ d.mac_address }}</td>
+      <td>{{ d.dhcp_version }}</td>
+      <td>{{ d.assigned_ip }}</td>
+      <td>{{ d.lease_time }}</td>
+      <td>{{ d.timestamp }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p><a href="{% url 'home' %}">Back</a></p>
+</body>
+</html>
